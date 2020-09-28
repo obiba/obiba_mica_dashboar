@@ -1,0 +1,4 @@
+{
+  "quotes": [2, "single", "avoid-escape"],
+  "extends": ["drupal-bundle"]
+}

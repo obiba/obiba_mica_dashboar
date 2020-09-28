@@ -1,0 +1,49 @@
+<?php
+/**
+* @file
+* Fetch Summary Mica statistics and information and display it in dashboard
+*/
+
+use Drupal\obiba_mica_dashboard\Controller\QueryRqlBuilders;
+use Drupal\obiba_mica_dashboard\ObibaMica;
+
+/**
+ * Implements hook_theme().
+ */
+function obiba_mica_dashboard_theme() {
+  $obiba_mica_server_conf = \Drupal::config(ObibaMica::MICA_SERVER_SETTINGS);
+  $repositoryUrl = $obiba_mica_server_conf->get(ObibaMica::CONFIG_PREFIX_SERVER . '.url') . '/' .
+    $obiba_mica_server_conf->get(ObibaMica::CONFIG_PREFIX_SERVER . '.repository_link');
+  return [
+    'obiba_mica_summary_dashboard' => [
+      'variables' => [
+        'links' => [
+          'networkQueryLink' => $repositoryUrl . '?query=' .
+            QueryRqlBuilders::network_queries(
+              QueryRqlBuilders::exists_query('Mica_network', 'id')
+            ) . '&type=networks',
+          'studyQueryLink' => $repositoryUrl . '?query=' .
+            QueryRqlBuilders::study_queries(
+              QueryRqlBuilders::className_query('Mica_study', 'Study')
+            ) . '&type=studies',
+          'studyHarmonizedQueryLink' => $repositoryUrl . '?query=' .
+            QueryRqlBuilders::study_queries(
+              QueryRqlBuilders::className_query('Mica_study', 'HarmonizationStudy')
+            ) . '&type=studies',
+          'studyWithVariableQueryLink' => $repositoryUrl . '?query=' .
+            QueryRqlBuilders::variable_query(
+              QueryRqlBuilders::in_query('Mica_variable', 'variableType', 'Collected')) .
+            QueryRqlBuilders::study_query(
+              QueryRqlBuilders::className_query('Mica_study', 'Study')
+            ) . '&type=studies'
+          ,
+          'variableQueryLink' => $repositoryUrl . '?query=' .
+            QueryRqlBuilders::study_queries(
+              QueryRqlBuilders::className_query('Mica_study', 'Study')
+            ) . '&type=variables',
+        ]
+      ],
+      'template' => 'obiba_mica_summary_dashboard',
+    ],
+  ];
+}

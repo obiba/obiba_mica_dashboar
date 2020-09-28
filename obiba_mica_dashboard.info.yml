@@ -1,0 +1,4 @@
+name: Obiba Mica Dashboard
+type: module
+description: 'Fetch Summary Mica statistics and information and display it in dashboard.'
+core: 8.x

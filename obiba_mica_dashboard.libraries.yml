@@ -1,0 +1,11 @@
+summary_dashboard:
+  version: 0.1
+  js:
+    # Core.
+    js/dist/obiba-mica-summary-dashboard.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+    - core/underscore
+    - core/backbone

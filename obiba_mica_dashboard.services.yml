@@ -1,0 +1,3 @@
+services:
+  obiba_mica_dashboard.controller.queryrqlbuilders:
+    class: Drupal\obiba_mica_dashboard\Controller\QueryRqlBuilders

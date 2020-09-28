@@ -1,0 +1,43 @@
+{#
+/**
+ * @file
+ * Theme to display Obiba Mica Dashboard.
+ *
+ * Available variables:
+ * - links
+ *
+ * BackboneJs template
+ */
+#}
+<div id="mica-summary-dashboard"></div>
+
+<script type="text/template" id="summary-dashboard-counts">
+  <a href="{{ links.networkQueryLink }}" target="_blank" class="networks">
+    <h1>
+      <span class="label label-info"><%= Drupal.t('Networks') %>
+        <span class="badge"><%=  Network.published.toLocaleString(currentLang) %></span>
+      </span>
+    </h1>
+  </a>
+  <a href="{{ links.studyQueryLink }}" target="_blank" class="studies">
+    <h1>
+      <span class="label label-warning"><%= Drupal.t('Individual Studies') %>
+        <span class="badge"><%=  Study.published.toLocaleString(currentLang) %></span>
+      </span>
+    </h1>
+  </a>
+  <a href="{{ links.studyHarmonizedQueryLink }}" target="_blank" class="studies-with-variables">
+    <h1>
+      <span class="label label-success"><%= Drupal.t('Harmonization Studies') %>
+        <span class="badge"><%=  HarmonizationStudy.published.toLocaleString(currentLang) %></span>
+      </span>
+    </h1>
+  </a>
+  <a href="{{ links.variableQueryLink }}" target="_blank" class="variables">
+    <h1>
+      <span class="label label-default"><%= Drupal.t('Variables')%>
+        <span class="badge"><%=  DatasetVariable.published.toLocaleString(currentLang) %></span>
+      </span>
+    </h1>
+  </a>
+</script>

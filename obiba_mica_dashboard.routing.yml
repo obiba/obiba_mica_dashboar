@@ -1,0 +1,15 @@
+obiba_mica_dashboard.admin_config_mica_dashboard:
+  path: '/admin/config/obiba-mica-dashboard'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Obiba Mica Dashboard'
+  requirements:
+    _permission: 'access administration pages'
+obiba_mica_dashboard.admin_server_settings:
+  path: '/admin/config/obiba-mica-dashboard/mica-server-settings'
+  defaults:
+    _form: '\Drupal\obiba_mica_dashboard\Form\MicaServerSettings'
+    _title: 'Settings'
+    _description: 'Configure OBiBa Mica Dashboard'
+  requirements:
+    _permission: 'administer obiba mica'

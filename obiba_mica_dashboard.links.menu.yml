@@ -1,0 +1,9 @@
+obiba_mica_dashboard.admin_config_mica_dashboard:
+  title: 'OBIBA MICA DASHBOARD'
+  route_name: obiba_mica_dashboard.admin_config_mica_dashboard
+  parent: system.admin_config
+obiba_mica_dashboard.admin_server_settings:
+  title: 'Mica Server Settings'
+  route_name: obiba_mica_dashboard.admin_server_settings
+  description: 'Configure OBiBa central authentication services'
+  parent: obiba_mica_dashboard.admin_config_mica_dashboard
